@@ -1,0 +1,21 @@
+to initialize React App:
+cd frontend
+npx create-react-app frontend
+package:
+npm install react-router-dom
+
+to initialize the Node backend:
+cd backend
+npm init -y
+packages:
+npm install --save-dev nodemon
+npm install express body-parser concurrently
+npm install --save mongoose
+npm i dotenv
+
+run backend with:
+npm run server
+run frontend with:
+npm start
+Update the frontend/package.json with the proxy:
+"proxy": "http://localhost:4000/"
