@@ -14,11 +14,19 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "body-parser": "^1.19.1",
+    "body-parser": "^1.19.2",
     "concurrently": "^5.3.0",
     "dotenv": "^8.6.0",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "mongoose": "^5.13.14"
   },
-  "description": ""
+  "description": "to initialize React App: cd frontend npx create-react-app frontend package: npm install react-router-dom",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rcereno/r-EZ-ipe-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rcereno/r-EZ-ipe-backend/issues"
+  },
+  "homepage": "https://github.com/rcereno/r-EZ-ipe-backend#readme"
 }
