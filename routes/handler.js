@@ -52,11 +52,13 @@ router.post('/addRecipe', async (req, res) => {
     const recipeName = req.body.recipeName;
     const recipeIngredients = req.body.recipeIngredients;
     const recipeSteps = req.body.recipeSteps;
+    const recipeURL = req.body.recipeURL;
 
     const newRecipe = new Schemas.Recipes({
-        recipe: recipeName,
+        name: recipeName,
         ingredients: recipeIngredients,
-        steps: recipeSteps
+        steps: recipeSteps,
+        imageURL: recipeURL
     });
 
     try {
