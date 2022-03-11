@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Schemas = require('../models/Schemas.js');
 
+
 router.get('/recipes', async (req, res) => {
     const recipes = Schemas.Recipes;
 
@@ -11,6 +12,45 @@ router.get('/recipes', async (req, res) => {
             res.end(JSON.stringify(recipeData));
         } else {
             res.end();
+        }
+    });
+});
+
+router.get('/vegetarianrecipes', async (req, res) => {
+    const vegetarian = Schemas.Recipes;
+
+    const vegetarianRecipes = await vegetarian.find({}, (err, recipeData) => {
+        if (err) throw err;
+        if (recipeData) {
+            res.end(JSON.stringify(recipeData));
+        }    else {
+                res.end();
+        }
+    });
+});
+
+router.get('/veganrecipes', async (req, res) => {
+    const vegan = Schemas.Recipes;
+
+    const veganRecipes = await vegan.find({}, (err, recipeData) => {
+        if (err) throw err;
+        if (recipeData) {
+            res.end(JSON.stringify(recipeData));
+        }    else {
+                res.end();
+        }
+    });
+});
+
+router.get('/proteinrecipes', async (req, res) => {
+    const protein = Schemas.Recipes;
+
+    const proteinRecipes = await protein.find({}, (err, recipeData) => {
+        if (err) throw err;
+        if (recipeData) {
+            res.end(JSON.stringify(recipeData));
+        }    else {
+                res.end();
         }
     });
 });
@@ -52,11 +92,13 @@ router.post('/addRecipe', async (req, res) => {
     const recipeName = req.body.recipeName;
     const recipeIngredients = req.body.recipeIngredients;
     const recipeSteps = req.body.recipeSteps;
+    const recipeURL = req.body.recipeURL;
 
     const newRecipe = new Schemas.Recipes({
-        recipe: recipeName,
+        name: recipeName,
         ingredients: recipeIngredients,
-        steps: recipeSteps
+        steps: recipeSteps,
+        imageURL: recipeURL
     });
 
     try {
