@@ -17,7 +17,7 @@ router.get('/recipes', async (req, res) => {
 });
 
 router.get('/vegetarianrecipes', async (req, res) => {
-    const vegetarian = Schemas.Recipes;
+    const vegetarian = Schemas.Vegeterian;
 
     const vegetarianRecipes = await vegetarian.find({}, (err, recipeData) => {
         if (err) throw err;
@@ -30,7 +30,7 @@ router.get('/vegetarianrecipes', async (req, res) => {
 });
 
 router.get('/veganrecipes', async (req, res) => {
-    const vegan = Schemas.Recipes;
+    const vegan = Schemas.Vegan;
 
     const veganRecipes = await vegan.find({}, (err, recipeData) => {
         if (err) throw err;
@@ -43,7 +43,7 @@ router.get('/veganrecipes', async (req, res) => {
 });
 
 router.get('/proteinrecipes', async (req, res) => {
-    const protein = Schemas.Recipes;
+    const protein = Schemas.Protein;
 
     const proteinRecipes = await protein.find({}, (err, recipeData) => {
         if (err) throw err;
