@@ -12,7 +12,7 @@ npm install --save-dev nodemon
 npm install express body-parser concurrently
 npm install --save mongoose
 npm i dotenv
-
+supertest install 
 run backend with:
 npm run server
 run frontend with:
