@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const Schemas = require('../models/Schemas.js');
 
+// router.post('/api/test', (req, res) => {
+//     const { name } = req.body;
+//     res.status(201).json({ message: 'This is just a test' })
+//   })
 
 router.get('/recipes', async (req, res) => {
     const recipes = Schemas.Recipes;
