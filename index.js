@@ -12,13 +12,13 @@ app.use('/', routesHandler);
 
 //connect to mongoose
 
-// mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:true})
-// .then( () => {
-//     console.log('DB Connected!');
-// })
-// .catch( (err) => {
-//     console.log(err);
-// });
+mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:true})
+.then( () => {
+    console.log('DB Connected!');
+})
+.catch( (err) => {
+    console.log(err);
+});
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
