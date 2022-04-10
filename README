@@ -19,3 +19,5 @@ run frontend with:
 npm start
 Update the frontend/package.json with the proxy:
 "proxy": "http://localhost:4000/"
+
+Source for backend: "https://github.com/raywenderlich/recipes/blob/master/Recipes.json"
