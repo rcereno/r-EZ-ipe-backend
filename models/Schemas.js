@@ -31,12 +31,54 @@ const veganSchema = new Schema({
     steps:{type:String,ref:'true'}
 });
 
+const seafoodSchema = new Schema({
+    name: {type:String, required:true},
+    ingredients: {type:String, ref:'true'},
+    steps:{type:String,ref:'true'}
+});
+
+const quickeasySchema = new Schema({
+    name: {type:String, required:true},
+    ingredients: {type:String, ref:'true'},
+    steps:{type:String,ref:'true'}
+});
+
+const lowbudgetSchema = new Schema({
+    name: {type:String, required:true},
+    ingredients: {type:String, ref:'true'},
+    steps:{type:String,ref:'true'}
+});
+
+const lessthanfiveSchema = new Schema({
+    name: {type:String, required:true},
+    ingredients: {type:String, ref:'true'},
+    steps:{type:String,ref:'true'}
+});
+
+const ketoSchema = new Schema({
+    name: {type:String, required:true},
+    ingredients: {type:String, ref:'true'},
+    steps:{type:String,ref:'true'}
+});
+
+const paleoSchema = new Schema({
+    name: {type:String, required:true},
+    ingredients: {type:String, ref:'true'},
+    steps:{type:String,ref:'true'}
+});
+
+
 const Recipes = mongoose.model('recipes', recipeSchema, 'recipes');
 const Ingredients = mongoose.model('ingredients',ingredientSchema,'ingredients');
 const Vegeterian = mongoose.model('vegetarian', vegetarianSchema, 'vegetarian' );
 const Protein = mongoose.model('protein', proteinSchema, 'protein' );
 const Vegan = mongoose.model('vegan', veganSchema, 'vegan' );
-const mySchemas = {'Recipes':Recipes,'Ingredients':Ingredients, 'Vegeterian':Vegeterian,'Protein':Protein,'Vegan':Vegan};
-
+const Seafood = mongoose.model('seafood', seafoodSchema, 'seafood' );
+const QuickEasy = mongoose.model('quickEasy', quickeasySchema, 'quickEasy' );
+const LowBudget = mongoose.model('lowbudget', lowbudgetSchema, 'lowbudget' );
+const LessthanFive = mongoose.model('lessthanfive', lessthanfiveSchema, 'lessthanfive' );
+const Keto = mongoose.model('keto', ketoSchema, 'keto' );
+const Paleo= mongoose.model('paleo', paleoSchema, 'paleo' );
+const mySchemas = {'Recipes':Recipes,'Ingredients':Ingredients, 'Vegeterian':Vegeterian,'Protein':Protein,'Vegan':Vegan, 'Seafood':Seafood, 'QuickEasy':QuickEasy, 'Lowbudget':LowBudget, 'LessthanFive':LessthanFive, 'Keto':Keto, 'Paleo':Paleo};
 
 module.exports = mySchemas;

@@ -59,6 +59,84 @@ router.get('/proteinrecipes', async (req, res) => {
     });
 });
 
+router.get('/ketorecipes', async (req, res) => {
+    const keto = Schemas.Keto;
+
+    const ketoRecipes = await keto.find({}, (err, recipeData) => {
+        if (err) throw err;
+        if (recipeData) {
+            res.end(JSON.stringify(recipeData));
+        }    else {
+                res.end();
+        }
+    });
+});
+
+router.get('/lessthanfiverecipes', async (req, res) => {
+    const lessthanfive = Schemas.LessthanFive;
+
+    const lessthanfiveRecipes = await lessthanfive.find({}, (err, recipeData) => {
+        if (err) throw err;
+        if (recipeData) {
+            res.end(JSON.stringify(recipeData));
+        }    else {
+                res.end();
+        }
+    });
+});
+
+router.get('/lowbudgetrecipes', async (req, res) => {
+    const lowbudget = Schemas.Lowbudget;
+
+    const lowbudgetRecipes = await lowbudget.find({}, (err, recipeData) => {
+        if (err) throw err;
+        if (recipeData) {
+            res.end(JSON.stringify(recipeData));
+        }    else {
+                res.end();
+        }
+    });
+});
+
+router.get('/paleorecipes', async (req, res) => {
+    const paleo = Schemas.Paleo;
+
+    const paleoRecipes = await paleo.find({}, (err, recipeData) => {
+        if (err) throw err;
+        if (recipeData) {
+            res.end(JSON.stringify(recipeData));
+        }    else {
+                res.end();
+        }
+    });
+});
+
+router.get('/quickeasyrecipes', async (req, res) => {
+    const quickeasy = Schemas.QuickEasy;
+
+    const quickeasyRecipes = await quickeasy.find({}, (err, recipeData) => {
+        if (err) throw err;
+        if (recipeData) {
+            res.end(JSON.stringify(recipeData));
+        }    else {
+                res.end();
+        }
+    });
+});
+
+router.get('/seafoodrecipes', async (req, res) => {
+    const seafood = Schemas.Seafood;
+
+    const seafoodRecipes = await seafood.find({}, (err, recipeData) => {
+        if (err) throw err;
+        if (recipeData) {
+            res.end(JSON.stringify(recipeData));
+        }    else {
+                res.end();
+        }
+    });
+});
+
 router.get('/ingredients', async (req, res) => {
     const ingredients = Schemas.Ingredients;
 
