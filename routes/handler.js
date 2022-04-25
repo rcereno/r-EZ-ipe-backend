@@ -159,8 +159,7 @@ router.post('/addIngredient', async (req, res) => {
 
     try {
         await newIngredient.save( (err, newIngredient) => {
-            if (err) res.end('Error Saving.');
-            res.redirect('/ingredients');
+            if (err) res.redirect('/ingredients');
             res.end();
         });
     } catch(err) {
@@ -185,8 +184,7 @@ router.post('/addRecipe', async (req, res) => {
 
     try {
         await newRecipe.save( (err, newRecipeResults) => {
-            if (err) res.end('Error Saving.');
-            res.redirect('/recipes');
+            if (err) res.redirect('/recipes');
             res.end();
         });
     } catch(err) {
