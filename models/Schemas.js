@@ -37,7 +37,7 @@ const seafoodSchema = new Schema({
     steps:{type:String,ref:'true'}
 });
 
-const quickeasySchema = new Schema({
+const quickEasySchema = new Schema({
     name: {type:String, required:true},
     ingredients: {type:String, ref:'true'},
     steps:{type:String,ref:'true'}
@@ -74,7 +74,7 @@ const Vegeterian = mongoose.model('vegetarian', vegetarianSchema, 'vegetarian' )
 const Protein = mongoose.model('protein', proteinSchema, 'protein' );
 const Vegan = mongoose.model('vegan', veganSchema, 'vegan' );
 const Seafood = mongoose.model('seafood', seafoodSchema, 'seafood' );
-const QuickEasy = mongoose.model('quickEasy', quickeasySchema, 'quickEasy' );
+const QuickEasy = mongoose.model('quickeasy', quickEasySchema, 'quickeasy' );
 const LowBudget = mongoose.model('lowbudget', lowbudgetSchema, 'lowbudget' );
 const LessthanFive = mongoose.model('lessthanfive', lessthanfiveSchema, 'lessthanfive' );
 const Keto = mongoose.model('keto', ketoSchema, 'keto' );

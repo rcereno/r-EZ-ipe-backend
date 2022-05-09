@@ -112,9 +112,9 @@ router.get('/paleorecipes', async (req, res) => {
 });
 
 router.get('/quickeasyrecipes', async (req, res) => {
-    const quickeasy = Schemas.QuickEasy;
+    const quickEasy = Schemas.QuickEasy;
 
-    const quickeasyRecipes = await quickeasy.find({}, (err, recipeData) => {
+    const quickEasyRecipes = await quickEasy.find({}, (err, recipeData) => {
         if (err) throw err;
         if (recipeData) {
             res.end(JSON.stringify(recipeData));
