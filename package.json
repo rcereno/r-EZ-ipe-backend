@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js",
-    "client": "npm run start --prefix ../frontend",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "test": "NODE_ENV=test jest"
+    "test": "prettier --check . && jest",
+    "dev": "nodemon backend_with_db.js",
+    "start": "node backend_with_db.js"
   },
   "keywords": [],
   "author": "",

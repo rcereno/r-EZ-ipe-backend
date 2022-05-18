@@ -44,8 +44,12 @@ mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:t
   
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}.`);
+// });
+
+app.listen(process.env.PORT || port, () => {
+    console.log("REST API is listening.");
+  });
 
 // module.exports = { connectDB, disconnectDB };
