@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "prettier --check . && jest",
+    "test": "jest",
     "dev": "nodemon backend_with_db.js",
     "start": "node backend_with_db.js"
   },
