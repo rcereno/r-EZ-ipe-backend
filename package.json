@@ -12,7 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^27.5.1",
-    "mongodb-memory-server": "^8.4.1",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2"
   },
@@ -22,7 +21,8 @@
     "dotenv": "^8.6.0",
     "express": "^4.17.3",
     "mongoose": "^5.13.14",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "mongodb-memory-server": "^8.4.1"
   },
   "description": "to initialize React App: cd frontend npx create-react-app frontend package: npm install react-router-dom",
   "repository": {
