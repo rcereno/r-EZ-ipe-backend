@@ -53,7 +53,7 @@ const PORT = process.env.PORT || 4000;
 // });
 
 app.listen(process.env.PORT || PORT, () => {
-    console.log('REST API is listening on port. ');
+    console.log('REST API is listening on port ' + PORT);
   });
 
 // module.exports = { connectDB, disconnectDB };
