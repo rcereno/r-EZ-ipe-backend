@@ -31,12 +31,19 @@ const veganSchema = new Schema({
     steps:{type:String,ref:'true'}
 });
 
+const loginSchema= new Schema({
+    name: {type:String, required:true},
+    password:{type:String, required:true},
+    accountname: {type:String, required:true}
+});
+
 const Recipes = mongoose.model('recipes', recipeSchema, 'recipes');
 const Ingredients = mongoose.model('ingredients',ingredientSchema,'ingredients');
 const Vegeterian = mongoose.model('vegetarian', vegetarianSchema, 'vegetarian' );
 const Protein = mongoose.model('protein', proteinSchema, 'protein' );
 const Vegan = mongoose.model('vegan', veganSchema, 'vegan' );
-const mySchemas = {'Recipes':Recipes,'Ingredients':Ingredients, 'Vegeterian':Vegeterian,'Protein':Protein,'Vegan':Vegan};
+const Login = mongoose.model('login' , loginSchema , 'login' );
+const mySchemas = {'Recipes':Recipes,'Ingredients':Ingredients, 'Vegeterian':Vegeterian,'Protein':Protein,'Vegan':Vegan, 'Login':Login};
 
 
 module.exports = mySchemas;

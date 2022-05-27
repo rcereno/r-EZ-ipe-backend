@@ -5,10 +5,13 @@ const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 require('dotenv/config');
 let mongod = null;
+const cors = require('cors');
 const app = express();
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/', routesHandler);
+app.use(cors());
 
 //connect to mongoose
 
