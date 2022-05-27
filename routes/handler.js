@@ -26,6 +26,25 @@ router.get('/recipes', async (req, res) => {
     });
 });
 
+router.get('/ingredients/:ingredients', async (req, res) => {
+    const id = req.params.ingredients;
+    let result = findRecipesbyIngredients(ingredients);
+ 
+    if(result === undefined || result.length == 0){
+        res.status(404).send('Resource not found!');
+    }
+    else{
+        result = {users_list: result};
+        res.send(result)
+    }
+});
+  
+ 
+const findRecipesbyIngredients = (name) => {
+    return users['users_list'].find( (recipes) => recipes.ingredients === name);
+}
+
+
 router.get('/vegetarianrecipes', async (req, res) => {
     const vegetarian = Schemas.Vegeterian;
 
@@ -215,9 +234,9 @@ router.post('/addRecipe', async (req, res) => {
 
 
 router.post('/addUser', async (req, res) => {
-    const user = req.body.user;
+    const user = req.body.name;
     const userPassword = req.body.password;
-    const userName = req.body.account_name;
+    const userName = req.body.accountname;
 
     const newLogin = new Schemas.Login({
         name: user,
