@@ -44,7 +44,7 @@ mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:t
 //       console.log(err);
 //       process.exit(1);
 //     }
-//   };
+//   }; 
   
 
 const PORT = process.env.PORT || 4000;
@@ -52,7 +52,7 @@ const PORT = process.env.PORT || 4000;
 //     console.log(`Server is running on port ${PORT}.`);
 // });
 
-app.listen(process.env.PORT || PORT, () => {
+app.listen(PORT, () => {
     console.log('REST API is listening on port ' + PORT);
   });
 
