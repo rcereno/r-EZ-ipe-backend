@@ -32,9 +32,11 @@ const veganSchema = new Schema({
 });
 
 const loginSchema= new Schema({
-    name: {type:String, required:true},
-    password:{type:String, ref:'true'},
-    accountname: {type:String, ref:'true'}
+    tenant: {type:String, required:true},
+    connection:{type:String, ref:'true'},
+    email: {type:String, ref:'true'},
+    password: {type:String, ref:'true'}
+
 });
 
 const Recipes = mongoose.model('recipes', recipeSchema, 'recipes');

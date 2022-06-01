@@ -13,6 +13,10 @@ app.use(bodyParser.json());
 app.use('/', routesHandler);
 app.use(cors());
 
+const { clientOrigins, serverPort } = require("./config/env.dev");
+const { messagesRouter } = require("./messages/messages.router");
+
+
 //connect to mongoose
 
 mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:true})

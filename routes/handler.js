@@ -188,6 +188,23 @@ router.get('/login', async (req, res) => {
     });
 });
 
+//GOOOD ONE
+// router.get('/login', async (req, res) => {
+//     const login = Schemas.Login;
+
+//     const ingredientName = await login.find({}, (err, userData) => {
+//         if (err) throw err;
+//         if (userData) {
+//             res.end(JSON.stringify(userData));
+//         } else {
+//             res.end();
+//         }
+//     });
+// });
+// router.get('/login', (req, res) => {
+//     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
+//   });
+
 router.post('/addIngredient', async (req, res) => {
     const ingredientName = req.body.ingredientName;
 
@@ -256,6 +273,8 @@ router.post('/addUser', async (req, res) => {
         res.end();
     }
 });
+
+
 
 
 module.exports = router;
