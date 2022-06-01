@@ -174,12 +174,15 @@ router.post('/addRecipe', async (req, res) => {
     const recipeIngredients = req.body.recipeIngredients;
     const recipeSteps = req.body.recipeSteps;
     const recipeURL = req.body.recipeURL;
+    const sourceURL = req.body.originalURL;
 
     const newRecipe = new Schemas.Recipes({
         name: recipeName,
         ingredients: recipeIngredients,
         steps: recipeSteps,
-        imageURL: recipeURL
+        imageURL: recipeURL,
+        originalURL: sourceURL
+
     });
 
     try {
