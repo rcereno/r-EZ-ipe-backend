@@ -17,10 +17,6 @@ const { clientOrigins, serverPort } = require("./config/env.dev");
 const { messagesRouter } = require("./messages/messages.router");
 
 
-var cors = require('cors')
-
-app.use(cors())
-
 //connect to mongoose
 
 mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:true})
