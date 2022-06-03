@@ -1,6 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const router = express.Router();
 const Schemas = require('../models/Schemas.js');
+
+
+
+
+
 
 // router.post('/api/test', (req, res) => {
 //     const { name } = req.body;
@@ -19,6 +25,25 @@ router.get('/recipes', async (req, res) => {
         }
     });
 });
+
+router.get('/ingredients/:ingredients', async (req, res) => {
+    const id = req.params.ingredients;
+    let result = findRecipesbyIngredients(ingredients);
+ 
+    if(result === undefined || result.length == 0){
+        res.status(404).send('Resource not found!');
+    }
+    else{
+        result = {users_list: result};
+        res.send(result)
+    }
+});
+  
+ 
+const findRecipesbyIngredients = (name) => {
+    return users['users_list'].find( (recipes) => recipes.ingredients === name);
+}
+
 
 router.get('/vegetarianrecipes', async (req, res) => {
     const vegetarian = Schemas.Vegeterian;
@@ -150,6 +175,36 @@ router.get('/ingredients', async (req, res) => {
     });
 });
 
+router.get('/login', async (req, res) => {
+    const login = Schemas.Login;
+
+    const ingredientName = await login.find({}, (err, userData) => {
+        if (err) throw err;
+        if (userData) {
+            res.end(JSON.stringify(userData));
+        } else {
+            res.end();
+        }
+    });
+});
+
+//GOOOD ONE
+// router.get('/login', async (req, res) => {
+//     const login = Schemas.Login;
+
+//     const ingredientName = await login.find({}, (err, userData) => {
+//         if (err) throw err;
+//         if (userData) {
+//             res.end(JSON.stringify(userData));
+//         } else {
+//             res.end();
+//         }
+//     });
+// });
+// router.get('/login', (req, res) => {
+//     res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out')
+//   });
+
 router.post('/addIngredient', async (req, res) => {
     const ingredientName = req.body.ingredientName;
 
@@ -196,5 +251,33 @@ router.post('/addRecipe', async (req, res) => {
         res.end();
     }
 });
+
+
+router.post('/addUser', async (req, res) => {
+    const user = req.body.name;
+    const userPassword = req.body.password;
+    const userName = req.body.accountname;
+
+    const newLogin = new Schemas.Login({
+        name: user,
+        password: userPassword,
+        accountname: userName
+    
+    });
+
+    try {
+        await newLogin.save( (err, newRecipeResults) => {
+            if (err) res.redirect('/login');
+            res.end();
+        });
+    } catch(err) {
+        console.log(err);
+        res.redirect('/login');
+        res.end();
+    }
+});
+
+
+
 
 module.exports = router;

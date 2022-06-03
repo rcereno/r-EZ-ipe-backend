@@ -69,6 +69,14 @@ const paleoSchema = new Schema({
 });
 
 
+const loginSchema= new Schema({
+    tenant: {type:String, required:true},
+    connection:{type:String, ref:'true'},
+    email: {type:String, ref:'true'},
+    password: {type:String, ref:'true'}
+
+});
+
 const Recipes = mongoose.model('recipes', recipeSchema, 'recipes');
 const Ingredients = mongoose.model('ingredients',ingredientSchema,'ingredients');
 const Vegeterian = mongoose.model('vegetarian', vegetarianSchema, 'vegetarian' );
@@ -80,6 +88,8 @@ const LowBudget = mongoose.model('lowbudget', lowbudgetSchema, 'lowbudget' );
 const LessthanFive = mongoose.model('lessthanfive', lessthanfiveSchema, 'lessthanfive' );
 const Keto = mongoose.model('keto', ketoSchema, 'keto' );
 const Paleo= mongoose.model('paleo', paleoSchema, 'paleo' );
-const mySchemas = {'Recipes':Recipes,'Ingredients':Ingredients, 'Vegeterian':Vegeterian,'Protein':Protein,'Vegan':Vegan, 'Seafood':Seafood, 'QuickEasy':QuickEasy, 'Lowbudget':LowBudget, 'LessthanFive':LessthanFive, 'Keto':Keto, 'Paleo':Paleo};
+const Login = mongoose.model('login' , loginSchema , 'login' );
+const mySchemas = {'Recipes':Recipes,'Ingredients':Ingredients, 'Vegeterian':Vegeterian,'Protein':Protein,'Vegan':Vegan, 'Seafood':Seafood, 'QuickEasy':QuickEasy, 'Lowbudget':LowBudget, 'LessthanFive':LessthanFive, 'Keto':Keto, 'Paleo':Paleo, 'Login':Login};
+
 
 module.exports = mySchemas;
