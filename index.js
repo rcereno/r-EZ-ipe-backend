@@ -13,8 +13,6 @@ app.use(bodyParser.json());
 app.use("/", routesHandler);
 app.use(cors());
 
-const { clientOrigins, serverPort } = require("./config/env.dev");
-const { messagesRouter } = require("./messages/messages.router");
 
 //connect to mongoose
 

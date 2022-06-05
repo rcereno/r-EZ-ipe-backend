@@ -14,7 +14,7 @@ npm install --save mongoose
 npm i dotenv
 supertest install 
 run backend with:
-npm run server
+npm start
 run frontend with:
 npm start
 Update the frontend/package.json with the proxy:
