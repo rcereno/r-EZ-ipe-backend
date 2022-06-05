@@ -3,7 +3,6 @@
 // const handlerFuncs = require("./handlerfuncs");
 // const { MongoMemoryServer } = require("mongodb-memory-server");
 
-
 // afterEach(async () => {
 //     await userModel.deleteMany();
 //   });
