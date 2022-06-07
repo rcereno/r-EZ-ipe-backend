@@ -1,0 +1,19 @@
+const Schemas = require("../models/Schemas.js");
+
+
+const fetchRecipe = id => Schemas.Recipes
+  .findById(id)
+  .populate('name')
+  .exec();
+
+
+  const createRecipe = ({name, ingredients, steps}) => {
+    const recipe = new Schemas.Recipes({
+      name,
+      ingredients,
+      steps,
+    });
+    return recipe.save();
+  }
+
+ modules.export = { fetchRecipe, createRecipe}

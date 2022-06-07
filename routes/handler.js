@@ -1,7 +1,10 @@
 const express = require("express");
-const cors = require("cors");
+const { SchemaTypes } = require("mongoose");
 const router = express.Router();
 const Schemas = require("../models/Schemas.js");
+require("cors");
+
+
 
 router.get("/recipes", async (req, res) => {
   const recipes = Schemas.Recipes;
@@ -13,26 +16,10 @@ router.get("/recipes", async (req, res) => {
     } else {
       res.end();
     }
-  });
+  }).populate('name').exec();
 });
 
-router.get("/ingredients/:ingredients", async (req, res) => {
-  const id = req.params.ingredients;
-  let result = findRecipesbyIngredients(ingredients);
-
-  if (result === undefined || result.length == 0) {
-    res.status(404).send("Resource not found!");
-  } else {
-    result = { users_list: result };
-    res.send(result);
-  }
-});
-
-const findRecipesbyIngredients = (name) => {
-  return users["users_list"].find((recipes) => recipes.ingredients === name);
-};
-
-router.get("/vegetarianrecipes", async (req, res) => {
+router.get("/vegetarianrecipes", async ( res) => {
   const vegetarian = Schemas.Vegeterian;
 
   const vegetarianRecipes = await vegetarian.find({}, (err, recipeData) => {
@@ -45,7 +32,7 @@ router.get("/vegetarianrecipes", async (req, res) => {
   });
 });
 
-router.get("/veganrecipes", async (req, res) => {
+router.get("/veganrecipes", async ( res) => {
   const vegan = Schemas.Vegan;
 
   const veganRecipes = await vegan.find({}, (err, recipeData) => {
@@ -58,7 +45,7 @@ router.get("/veganrecipes", async (req, res) => {
   });
 });
 
-router.get("/proteinrecipes", async (req, res) => {
+router.get("/proteinrecipes", async ( res) => {
   const protein = Schemas.Protein;
 
   const proteinRecipes = await protein.find({}, (err, recipeData) => {
@@ -71,7 +58,7 @@ router.get("/proteinrecipes", async (req, res) => {
   });
 });
 
-router.get("/ketorecipes", async (req, res) => {
+router.get("/ketorecipes", async ( res) => {
   const keto = Schemas.Keto;
 
   const ketoRecipes = await keto.find({}, (err, recipeData) => {
@@ -84,7 +71,7 @@ router.get("/ketorecipes", async (req, res) => {
   });
 });
 
-router.get("/lessthanfiverecipes", async (req, res) => {
+router.get("/lessthanfiverecipes", async (res) => {
   const lessthanfive = Schemas.LessthanFive;
 
   const lessthanfiveRecipes = await lessthanfive.find({}, (err, recipeData) => {
@@ -97,7 +84,7 @@ router.get("/lessthanfiverecipes", async (req, res) => {
   });
 });
 
-router.get("/lowbudgetrecipes", async (req, res) => {
+router.get("/lowbudgetrecipes", async ( res) => {
   const lowbudget = Schemas.Lowbudget;
 
   const lowbudgetRecipes = await lowbudget.find({}, (err, recipeData) => {
@@ -110,7 +97,7 @@ router.get("/lowbudgetrecipes", async (req, res) => {
   });
 });
 
-router.get("/paleorecipes", async (req, res) => {
+router.get("/paleorecipes", async ( res) => {
   const paleo = Schemas.Paleo;
 
   const paleoRecipes = await paleo.find({}, (err, recipeData) => {
@@ -123,7 +110,7 @@ router.get("/paleorecipes", async (req, res) => {
   });
 });
 
-router.get("/quickeasyrecipes", async (req, res) => {
+router.get("/quickeasyrecipes", async (res) => {
   const quickEasy = Schemas.QuickEasy;
 
   const quickEasyRecipes = await quickEasy.find({}, (err, recipeData) => {
@@ -136,7 +123,7 @@ router.get("/quickeasyrecipes", async (req, res) => {
   });
 });
 
-router.get("/seafoodrecipes", async (req, res) => {
+router.get("/seafoodrecipes", async ( res) => {
   const seafood = Schemas.Seafood;
 
   const seafoodRecipes = await seafood.find({}, (err, recipeData) => {
@@ -149,20 +136,7 @@ router.get("/seafoodrecipes", async (req, res) => {
   });
 });
 
-router.get("/ingredients", async (req, res) => {
-  const ingredients = Schemas.Ingredients;
-
-  const ingredientName = await ingredients.find({}, (err, ingredientData) => {
-    if (err) throw err;
-    if (ingredientData) {
-      res.end(JSON.stringify(ingredientData));
-    } else {
-      res.end();
-    }
-  });
-});
-
-router.get("/login", async (req, res) => {
+router.get("/login", async ( res) => {
   const login = Schemas.Login;
 
   const ingredientName = await login.find({}, (err, userData) => {
@@ -175,24 +149,6 @@ router.get("/login", async (req, res) => {
   });
 });
 
-router.post("/addIngredient", async (req, res) => {
-  const ingredientName = req.body.ingredientName;
-
-  const newIngredient = new Schemas.Ingredients({
-    ingredients: ingredientName,
-  });
-
-  try {
-    await newIngredient.save((err, newIngredient) => {
-      if (err) res.redirect("/ingredients");
-      res.end();
-    });
-  } catch (err) {
-    console.log(err);
-    res.redirect("/ingredients");
-    res.end();
-  }
-});
 
 router.post("/addRecipe", async (req, res) => {
   const recipeName = req.body.recipeName;
@@ -212,10 +168,12 @@ router.post("/addRecipe", async (req, res) => {
   try {
     await newRecipe.save((err, newRecipeResults) => {
       if (err) res.redirect("/recipes");
+      res.response(201);
       res.end();
     });
   } catch (err) {
     console.log(err);
+    res.response(400);
     res.redirect("/recipes");
     res.end();
   }
