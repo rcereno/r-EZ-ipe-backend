@@ -1,7 +1,7 @@
 // const { connectDB } = require('../../index');
 const mockingoose = require('mockingoose');
 // const model = require('../handler');
-const {fetchRecipe, createRecipe} = require('../handler');
+const {fetchRecipe, addRecipe, createRecipe} = require('../handler_funcs');
 const Schemas = require("../../models/Schemas.js");
 
 
@@ -87,23 +87,17 @@ test("Adding recipe -- successful path", async () => {
   
   });
 
-// describe('get recipe', () => {
-//     it('returns bad request if recipe', async () => {
-//         const res = await request(app).get('/recipes');
-//         expect(res.statusCode).toEqual(201);
-//     });
 
-// });
+  //doesnt work
+  test("Adding recipe -- unsucessful path", async () => {
+    const toBeAdded = {
+        name: "name"
+    };
 
-// describe('post ingredient', () => {
-//     it('returns bad request if ingredient is missing', async () => {
-//         const res = await request(app).post('/addIngredient').send({
-//             name: "name",
-//             ingredients: "ingredients",
-//             steps: "steps",
-//             imageURL: "https://www.tacobell.com/_static/web/images/loyalty/side-overlay-2022-E01-Rewards-Doritos-Locos-Tacos-W.png"
-//         });
-//         expect(res.statusCode).toEqual(201);
-//     });
-
-// });
+    mockingoose(Schemas.Recipes).toReturn(undefined,'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeFalsy();
+  
+  });

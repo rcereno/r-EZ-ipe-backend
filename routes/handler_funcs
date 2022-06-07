@@ -1,5 +1,5 @@
 const Schemas = require("../models/Schemas.js");
-
+const mongoose = require("mongoose");
 
 const fetchRecipe = id => Schemas.Recipes
   .findById(id)
@@ -8,12 +8,41 @@ const fetchRecipe = id => Schemas.Recipes
 
 
   const createRecipe = ({name, ingredients, steps}) => {
+
     const recipe = new Schemas.Recipes({
       name,
       ingredients,
       steps,
     });
-    return recipe.save();
+
+    try{
+        const saved = recipe.save();
+        return saved;
+    }catch (error) {
+        console.log(error);
+        return false;
+      }
+    
   }
 
- modules.export = { fetchRecipe, createRecipe}
+  async function addRecipe({n, i, s}) {
+    // userModel is a Model, a subclass of mongoose.Model
+    const recipe = {
+        name : n,
+        ingredients: i,
+        step: s
+      };
+    const userModel = mongoose.model("recipes", Schemas.Recipes, "recipes");
+    try {
+      const userToAdd = await new userModel(recipe);
+      const savedUser = userToAdd.save();
+      return savedUser;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  }
+  
+  
+
+  module.exports = {fetchRecipe, addRecipe, createRecipe};

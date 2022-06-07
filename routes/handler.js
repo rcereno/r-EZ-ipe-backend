@@ -5,8 +5,7 @@ const Schemas = require("../models/Schemas.js");
 require("cors");
 
 
-
-router.get("/recipes", async (req, res) => {
+router.get("/recipes", async ( res) => {
   const recipes = Schemas.Recipes;
 
   const recipeNames = await recipes.find({}, (err, recipeData) => {
@@ -16,7 +15,7 @@ router.get("/recipes", async (req, res) => {
     } else {
       res.end();
     }
-  }).populate('name').exec();
+  });
 });
 
 router.get("/vegetarianrecipes", async ( res) => {
@@ -45,7 +44,7 @@ router.get("/veganrecipes", async ( res) => {
   });
 });
 
-router.get("/proteinrecipes", async ( res) => {
+router.get("/proteinrecipes", async (res) => {
   const protein = Schemas.Protein;
 
   const proteinRecipes = await protein.find({}, (err, recipeData) => {
