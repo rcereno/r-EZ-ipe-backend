@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654643755183" clover="3.2.0">
-  <project timestamp="1654643755183" name="All files">
-    <metrics statements="45" coveredstatements="35" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2" elements="48" coveredelements="37" complexity="0" loc="45" ncloc="45" packages="2" files="2" classes="2"/>
+<coverage generated="1654668473470" clover="3.2.0">
+  <project timestamp="1654668473470" name="All files">
+    <metrics statements="45" coveredstatements="37" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="48" coveredelements="40" complexity="0" loc="45" ncloc="45" packages="2" files="2" classes="2"/>
     <package name="models">
       <metrics statements="26" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="Schemas.js" path="/Users/eugeniamorales/Downloads/Documents/cs308project/r-EZ-ipe-backend/models/Schemas.js">
+      <file name="Schemas.js" path="/Users/chriscristerna/Desktop/309-Backend/r-EZ-ipe-backend/models/Schemas.js">
         <metrics statements="26" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -35,21 +35,21 @@
       </file>
     </package>
     <package name="routes">
-      <metrics statements="19" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-      <file name="handler_funcs" path="/Users/eugeniamorales/Downloads/Documents/cs308project/r-EZ-ipe-backend/routes/handler_funcs">
-        <metrics statements="19" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+      <metrics statements="19" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="handler_funcs" path="/Users/chriscristerna/Desktop/309-Backend/r-EZ-ipe-backend/routes/handler_funcs">
+        <metrics statements="19" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
+        <line num="19" count="11" type="stmt"/>
+        <line num="20" count="11" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>

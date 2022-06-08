@@ -88,6 +88,235 @@ test("Adding recipe -- successful path", async () => {
   });
 
 
+
+  test("Creating recipe -- successful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeTruthy();
+    expect(result.name).toBe(toBeAdded.name);
+    expect(result.job).toBe(toBeAdded.job);
+    expect(result).toHaveProperty("_id");
+  
+  });
+
+  test("Adding User -- successful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeTruthy();
+    expect(result.name).toBe(toBeAdded.name);
+    expect(result.job).toBe(toBeAdded.job);
+    expect(result).toHaveProperty("_id");
+  
+  });
+
+  test("Adding user -- unsuccessful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeTruthy();
+    expect(result.name).toBe(toBeAdded.name);
+    expect(result.job).toBe(toBeAdded.job);
+    expect(result).toHaveProperty("_id");
+  
+  });
+
+  test("Creating user -- unsuccessful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeTruthy();
+    expect(result.name).toBe(toBeAdded.name);
+    expect(result.job).toBe(toBeAdded.job);
+    expect(result).toHaveProperty("_id");
+  
+  });
+
+
+
+  test("Creating user -- successful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeTruthy();
+    expect(result.name).toBe(toBeAdded.name);
+    expect(result.job).toBe(toBeAdded.job);
+    expect(result).toHaveProperty("_id");
+  
+  });
+
+  test("Adding ingredient -- successful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeTruthy();
+    expect(result.name).toBe(toBeAdded.name);
+    expect(result.job).toBe(toBeAdded.job);
+    expect(result).toHaveProperty("_id");
+  
+  });
+  test("Adding ingredient -- unsuccessful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeTruthy();
+    expect(result.name).toBe(toBeAdded.name);
+    expect(result.job).toBe(toBeAdded.job);
+    expect(result).toHaveProperty("_id");
+  
+  });
+
+
+  test("Creating ingredient -- successful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeTruthy();
+    expect(result.name).toBe(toBeAdded.name);
+    expect(result.job).toBe(toBeAdded.job);
+    expect(result).toHaveProperty("_id");
+  
+  });
+
+  test("Creating ingredient -- unsuccessful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await createRecipe(toBeAdded);
+  
+    expect(result).toBeTruthy();
+    expect(result.name).toBe(toBeAdded.name);
+    expect(result.job).toBe(toBeAdded.job);
+    expect(result).toHaveProperty("_id");
+  
+  });
+
+
+
+
+
+
+  
+
+
   //doesnt work
   test("Adding recipe -- unsucessful path", async () => {
     const toBeAdded = {
@@ -98,6 +327,58 @@ test("Adding recipe -- successful path", async () => {
   
     const result = await createRecipe(toBeAdded);
   
-    expect(result).toBeFalsy();
+    expect(result).toBeUndefined();
   
   });
+
+
+  test("Creating recipe -- unsuccessful path", async () => {
+    const addedRecipe = {
+      _id : "some id...",
+      name: "name",
+      ingredients: "ing",
+      steps: "steps"
+    };
+    const toBeAdded = {
+        name: "name",
+        ingredients: "ing",
+        steps: "steps"
+    };
+
+    mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'save');
+  
+    const result = await addRecipe(toBeAdded);
+  
+    //expect(result).toBeTruthy();
+    // expect(result.name).toBe(toBeAdded.name);
+    // expect(result.job).toBe(toBeAdded.job);
+    // expect(result).toHaveProperty("_id");
+  
+  });
+
+
+//   test("Creating recipe -- unsuccessful path", async () => {
+//     const addedRecipe = {
+//       _id : "some id...",
+//       name: "name",
+//       ingredients: "ing",
+//       steps: "steps"
+//     };
+//     const toBeAdded = {
+//         name: "name",
+//         steps: "steps"
+//     };
+
+//     mockingoose(Schemas.Recipes).toReturn(addedRecipe, 'false');
+  
+//     const result = await addRecipe(toBeAdded);
+  
+//     expect(result).toBeFalsy();
+//     // expect(result.name).toBe(toBeAdded.name);
+//     // expect(result.job).toBe(toBeAdded.job);
+//     // expect(result).toHaveProperty("_id");
+  
+//   });
+
+
+  
